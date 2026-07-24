@@ -8,6 +8,11 @@ class StaticLidarBroadcaster(Node):
     def __init__(self):
         super().__init__('static_lidar_broadcaster')
 
+
+        self.declare_parameter('lidar_offset_x', 0.20)
+        self.declare_parameter('lidar_offset_z', 0.15)
+
+
         # The object that will publish onto /tf_static
         self.broadcaster = StaticTransformBroadcaster(self)
 
@@ -23,9 +28,9 @@ class StaticLidarBroadcaster(Node):
         t.child_frame_id = 'lidar_link'      # child
 
         # WHERE (translation, in metres)
-        t.transform.translation.x = 0.20
+        t.transform.translation.x = self.get_parameter('lidar_offset_x').value
         t.transform.translation.y = 0.0
-        t.transform.translation.z = 0.15
+        t.transform.translation.z = self.get_parameter('lidar_offset_z').value
 
         # HOW IT IS ROTATED (identity = no rotation)
         t.transform.rotation.x = 0.0

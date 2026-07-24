@@ -8,6 +8,9 @@ def generate_launch_description():
         executable='static_lidar_broadcaster',
         name='static_lidar_broadcaster',
         output='screen',
+        parameters=[
+            {'lidar_offset_x':0.20, 'lidar_offset_z':0.15}
+        ],
     )
 
     dynamic_odom = Node(
