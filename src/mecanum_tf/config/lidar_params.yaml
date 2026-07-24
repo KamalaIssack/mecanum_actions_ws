@@ -1,0 +1,5 @@
+static_lidar_broadcaster:
+  ros__parameters:
+    lidar_offset_x: 0.20
+    lidar_offset_z: 0.15
+
