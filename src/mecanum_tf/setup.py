@@ -30,6 +30,7 @@ setup(
         'console_scripts': [
              'static_lidar_broadcaster = mecanum_tf.static_lidar_broadcaster:main',
              'dynamic_odom_broadcaster = mecanum_tf.dynamic_odom_broadcaster:main',
+             'wheel_speed_test_publisher = mecanum_tf.wheel_speed_test_publisher:main',
         ],
     },
 )

@@ -9,6 +9,7 @@
 
 
   <depend>rclpy</depend>
+  <depend>mecanum_interfaces</depend>
   <depend>geometry_msgs</depend>
   <depend>tf2_ros</depend>
   <test_depend>ament_copyright</test_depend>
