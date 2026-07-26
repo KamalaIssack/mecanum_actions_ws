@@ -4,6 +4,8 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import TransformStamped
 from tf2_ros import TransformBroadcaster
+from mecanum_interfaces.srv import ResetOdometry
+
 
 
 class DynamicOdomBroadcaster(Node):
@@ -17,10 +19,19 @@ class DynamicOdomBroadcaster(Node):
         # Remember when we started, so we can measure elapsed time
         self.start_time = self.get_clock().now()
 
+        self.reset_service = self.create_service(ResetOdometry, 'reset_odometry', self.handle_reset_odometry)
+
         # Fire publish_transform 30 times per second
         self.timer = self.create_timer(1.0 / 30.0, self.publish_transform)
 
         self.get_logger().info('Publishing odom -> base_link on /tf at 30 Hz')
+
+    def handle_reset_odometry(self, request, response):
+        self.start_time = self.get_clock().now()
+        response.success = True
+        response.message = 'Odometry reset to origin'
+        self.get_logger().info('Odometry reset via service call')
+        return response
 
     def publish_transform(self):
         now = self.get_clock().now()
