@@ -32,6 +32,8 @@ setup(
              'dynamic_odom_broadcaster = mecanum_tf.dynamic_odom_broadcaster:main',
              'wheel_speed_test_publisher = mecanum_tf.wheel_speed_test_publisher:main',
              'reset_odometry_client = mecanum_tf.reset_odometry_client:main',
+             'move_for_seconds_server = mecanum_tf.move_for_seconds_server:main',
+             'move_for_seconds_client = mecanum_tf.move_for_seconds_client:main',
         ],
     },
 )
