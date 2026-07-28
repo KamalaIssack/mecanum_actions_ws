@@ -34,6 +34,9 @@ setup(
              'reset_odometry_client = mecanum_tf.reset_odometry_client:main',
              'move_for_seconds_server = mecanum_tf.move_for_seconds_server:main',
              'move_for_seconds_client = mecanum_tf.move_for_seconds_client:main',
+             'qos_publisher_test = mecanum_tf.qos_publisher_test:main',
+             'qos_subscriber_matched = mecanum_tf.qos_subscriber_matched:main',
+
         ],
     },
 )
